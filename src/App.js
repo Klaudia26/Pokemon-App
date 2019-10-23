@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 import Home from './Containers/Home';
-import Pokedex from './Containers/Pokedex';
+import Pokedex from './Containers/Pokedex/Pokedex';
+import PokemonPage from './Containers/Pokedex/PokemonPage';
 import Abilities from './Containers/Abilities';
 import Items from './Containers/Items';
 import Locations from './Containers/Locations';
@@ -19,8 +20,8 @@ class App extends React.Component {
             <Container>
                 <Router>
                     <Route exact path="/" component={Home} />
-                    <Route path="/pokedex" component={Pokedex} />
-                    <Route path="/pokedex/:pokemnId" component={Pokedex} />
+                    <Route exact path="/pokedex" component={Pokedex} />
+                    <Route path="/pokedex/:pokemonName" component={PokemonPage} />
                     <Route path="/abilities" component={Abilities} />
                     <Route path="/items" component={Items} />
                     <Route path="/locations" component={Locations} />
@@ -34,23 +35,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-// componentDidMount() {
-//     fetch(`https://pokeapi.co/api/v2/pokemon`)
-//         .then(response => {
-//             if (response.ok) {
-//                 return response.json();
-//             } else {
-//                 throw new Error('Something went wrong')
-//             }
-//         })
-//         .then(response => this.setState({
-//             pokemon: response.results,
-//             error: "",
-//         }))
-//         .catch(error => this.setState({
-//             pokemon: [],
-//             error: error.message
-//         }))
-// }

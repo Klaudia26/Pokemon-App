@@ -38,7 +38,7 @@ class Home extends Component {
                         <Input inverted icon='search' placeholder='Search...' type='text' />
                     </Form.Field>
                 </Form>
-                <Card.Group itemsPerRow={2}>
+                <Card.Group itemsPerRow={2} >
                     {this.renderCards()}
                 </Card.Group>
 
